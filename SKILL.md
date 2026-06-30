@@ -85,17 +85,34 @@ tags:
 
 ### 步骤3：字数验证
 
-运行验证脚本统计逐字稿字符数（含标点）：
+运行验证脚本统计逐字稿字符数（含标点）。脚本位于本 skill 目录下 `scripts/validate_question.py`：
 
 ```bash
-python ~/.qoderworkcn/skills/gongkao-interview-question/scripts/validate_question.py "<md文件路径>"
+# 路径自适应——skill 目录名即 gongkao-interview-question
+python <skill目录>/scripts/validate_question.py "<md文件路径>"
+
+# WorkBuddy 示例：
+python ~/.workbuddy/skills/gongkao-interview-question/scripts/validate_question.py "<md文件路径>"
+
+# 批量验证：
+python <skill目录>/scripts/validate_question.py 综合分析_*.md
 ```
 
-目标：800-930字（含标点，允许轻微溢出30字）。不达标则逐道修正——超了缩减冗余表述，不够扩充细节。
+目标：800-930字（含标点，允许轻微溢出30字）。
+
+**字数不达标处理**：
+- 字数 >930 → 优先缩减冗余连接词、重复论点、注水标语，保留核心论据
+- 字数 <800 → 在现有论点下补充具体数据、案例、操作动作，不加新论点
 
 ### 步骤4：AI痕迹 + 用语禁忌扫描
 
-同一脚本自动扫描 humanizer-zh 六类AI痕迹模式 + 公考用语禁忌四类。不达标则按白名单替换原则改写，改完重跑脚本确认。脚本支持批量验证多个文件。
+同一脚本自动扫描 humanizer-zh 六类AI痕迹模式 + 公考用语禁忌四类。脚本支持批量验证多个文件。
+
+**扫描不达标处理**：
+- AI痕迹命中 → 按下方"humanizer-zh 集成"的白名单替换原则逐条改写 → 重跑脚本确认零命中
+- 用语禁忌命中 → 按下方"公考面试用语禁忌"的白名单替换原则改写 → 重跑脚本确认零命中
+- 破折号过度使用（1段 >1个）→ 将多余破折号改为逗号或句号断句 → 重跑确认
+- 机械三段式命中 → 将"第一/第二/第三"改为递进关系或并列短语 → 重跑确认
 
 ### 步骤5：写入md文件
 

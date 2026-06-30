@@ -4,3 +4,7 @@ timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
 2026-06-30T13:40	311515d	gongkao-interview-question	65.1	69.9	keep	dim4	添加🔴CHECKPOINT视觉标记	dry_run
 2026-06-30T13:45	d806dfe	gongkao-interview-question	69.9	72.3	keep	dim9	新增8条执行反例黑名单	dry_run
 2026-06-30T13:50	3b9b46f	gongkao-interview-question	72.3	74.3	keep	dim5/8	步骤5显式脚本调用+全流程可执行	dry_run
+2026-06-30T13:42	583d2bc	gongkao-interview-question	-	74.4	baseline	-	第二轮基线：dim8 full_test(好样本全过+坏样本全抓)、dim2步骤6嵌套编号、dim5输出路径模糊、dim8路径不明	full_test
+2026-06-30T13:48	a84ff3e	gongkao-interview-question	74.4	78.4	keep	dim8/5	输出目录3级优先+mkdir fallback+ls验证+路径树状图	full_test
+2026-06-30T13:52	a7d5ee6	gongkao-interview-question	78.4	79.7	keep	dim5	六题型选题参考表(每类3-4示例)	full_test
+2026-06-30T13:56	957a6a9	gongkao-interview-question	79.7	81.3	keep	dim2	步骤6子编号1-6改a-f消除主步骤混淆+步骤4歧义修复	full_test

@@ -118,7 +118,11 @@ python <skill目录>/scripts/validate_question.py 综合分析_*.md
 
 ### 步骤5：写入md文件
 
-命名 `题型_编号_主题.md`，写入知识库对应题型文件夹。写入后用脚本做最终验证。
+命名 `题型_编号_主题.md`，写入知识库对应题型文件夹。写入后用脚本做最终验证：
+
+```bash
+python <skill目录>/scripts/validate_question.py "<刚写入的md文件路径>"
+```
 
 ### 步骤6：批量生产策略
 
